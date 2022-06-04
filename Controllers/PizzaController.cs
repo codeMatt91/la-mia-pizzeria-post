@@ -25,14 +25,14 @@ namespace la_mia_pizzeria_static.Controllers
                 pizze.pizzas.Add(Salame);
                 pizze.pizzas.Add(Funghi);
             }
-            
+
 
             return View(pizze);
         }
 
 
         public IActionResult Show(int id)
-        { 
+        {
             return View("Show", pizze.pizzas[id]);
         }
 
@@ -45,14 +45,21 @@ namespace la_mia_pizzeria_static.Controllers
                 Description = "",
                 Price = 0.0,
                 Photo = "",
-                
+
             };
-            
+
             return View(NuovaPizza);
         }
 
+
         public IActionResult ShowPizza(Pizza pizza)
         {
+
+            if (!ModelState.IsValid)
+            {
+                return View("CreaNuovaPizza", pizza);
+            }
+
             Pizza nuovaPizza = new Pizza()
             {
                 Id = pizza.Id,
@@ -60,10 +67,37 @@ namespace la_mia_pizzeria_static.Controllers
                 Description = pizza.Description,
                 Price = pizza.Price,
                 Photo = pizza.Photo,
-                
+
             };
             pizze.pizzas.Add(nuovaPizza);
             return View("ShowPizza", nuovaPizza);
+        }
+
+
+        public IActionResult AggiornaPizza(Pizza pizza)
+        {
+
+            return View("AggiornaPizza", pizza);
+        }
+
+        public IActionResult EditPizza(Pizza pizza)
+        {
+            //Pizza updatePizza = new Pizza();
+            //updatePizza = (Pizza)pizze.pizzas.Where(x => x.Id == pizza.Id);
+
+            Pizza updatePizza = pizze.pizzas.Find(x => x.Id == pizza.Id);
+
+            updatePizza.Name = pizza.Name;
+            updatePizza.Description = pizza.Description;
+            updatePizza.Price = pizza.Price;
+            if (updatePizza.Photo != pizza.Photo)
+            {
+                updatePizza.Photo = pizza.Photo;
+            }
+            
+
+
+            return View("Show", updatePizza);
         }
     }
 }

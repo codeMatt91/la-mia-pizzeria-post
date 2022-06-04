@@ -16,7 +16,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>@ViewData["Title"]</title>
 	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-
 	<link rel="stylesheet" href="~/css/index.css" asp-append-version="true" />
 </head>
 <body>
@@ -43,7 +42,7 @@
 		<main role="main" class="pb-3">
 			<div class="text-center">
 				<h1 class="display-4 pb-5">Le pizze piu famose</h1>
-				<div><a href="@Url.Action("CreaNuovaPizza", "Pizza")" class="btn-primary btn d-inline">Crea la tua Pizza</a></div>
+				<div><a href="@Url.Action("CreaNuovaPizza", "Pizza")" class="crea-pizza btn-primary btn d-inline">Crea la tua Pizza</a></div>
 				<table class="table">
 					<thead>
 						<tr>
@@ -58,7 +57,10 @@
 							foreach (var item in Model.pizzas)
 							{
 								<tr>
-									<td><h4><a href="@Url.Action("Show", "Pizza", new {@item.Id})">@item.Name</a></h4></td>
+									<td>
+										<h4><a href="@Url.Action("Show", "Pizza", new {@item.Id})">@item.Name</a></h4>
+										<a class="btn-warning btn d-inline" href="@Url.Action("AggiornaPizza", "Pizza", @item)">Aggiorna</a>
+									</td>
 									<td>@item.Description</td>
 									<td>@item.Price $</td>
 									<td><img src="@item.Photo"></td>

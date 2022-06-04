@@ -1,8 +1,11 @@
-﻿namespace la_mia_pizzeria_static.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace la_mia_pizzeria_static.Models
 {
     public class Pizza
     {
         public int Id { get; set; }
+        [Required(ErrorMessage="Il nome è obbligatorio")]
         public string Name { get; set; }
         public string Description { get; set; }
         public double Price { get; set; }
