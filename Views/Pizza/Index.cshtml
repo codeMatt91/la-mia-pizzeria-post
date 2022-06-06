@@ -4,7 +4,6 @@
 @{
 	Layout = null;
 	ViewData["Title"] = "Home Page";
-
 }
 
 @model la_mia_pizzeria_static.Models.listaPizze
@@ -32,7 +31,6 @@
 						<li class="nav-item">
 							<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
 						</li>
-
 					</ul>
 				</div>
 			</div>
@@ -54,12 +52,15 @@
 					</thead>
 					<tbody>
 						@{
-							foreach (var item in Model.pizzas)
+							foreach (var item in (List<Pizza>)Model.pizzas)
 							{
 								<tr>
 									<td>
 										<h4><a href="@Url.Action("Show", "Pizza", new {@item.Id})">@item.Name</a></h4>
-										<a class="btn-warning btn d-inline" href="@Url.Action("AggiornaPizza", "Pizza", @item)">Aggiorna</a>
+										<div>
+											<a class="btn-warning btn d-inline" href="@Url.Action("AggiornaPizza", "Pizza", @item)">Aggiorna</a>
+											<a class="btn-danger btn d-inline" href="@Url.Action("RimuoviPizza", "Pizza", (Pizza)@item)">Cancella</a>
+										</div>
 									</td>
 									<td>@item.Description</td>
 									<td>@item.Price $</td>
