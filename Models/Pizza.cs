@@ -8,9 +8,8 @@ namespace la_mia_pizzeria_static.Models
         [Required(ErrorMessage="Il nome è obbligatorio")]
         public string Name { get; set; }
         [Required(ErrorMessage = "La descrizione è obbligatorio")]
-        [Range(0,20, ErrorMessage = "La descrizione deve essere piu lunga")]
         public string Description { get; set; }
-        [Required(ErrorMessage = "Il prezzo deve essere maggiore di 6 euro")]
+        [Required(ErrorMessage = "Il prezzo è obbligatorio")]
         public double Price { get; set; }
         public string? Photo { get; set; }
 

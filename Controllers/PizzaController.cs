@@ -40,7 +40,7 @@ namespace la_mia_pizzeria_static.Controllers
         {
             Pizza NuovaPizza = new Pizza()
             {
-                Id = 0,
+                Id = pizze.pizzas.Count + 1,
                 Name = "",
                 Description = "",
                 Price = 0.0,
