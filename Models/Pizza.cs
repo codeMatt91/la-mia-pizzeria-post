@@ -7,7 +7,7 @@ namespace la_mia_pizzeria_static.Models
         public int Id { get; set; }
         [Required(ErrorMessage="Il nome è obbligatorio")]
         public string Name { get; set; }
-        [Required(ErrorMessage = "La descrizione è obbligatorio")]
+        [Required(ErrorMessage = "La descrizione è obbligatoria")]
         public string Description { get; set; }
         [Required(ErrorMessage = "Il prezzo è obbligatorio")]
         public double Price { get; set; }
