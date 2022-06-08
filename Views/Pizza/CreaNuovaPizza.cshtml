@@ -7,10 +7,6 @@
 	<form method="post" action="@Url.Action("ShowPizza", "Pizza")">
 		@Html.AntiForgeryToken()
 		<div class="mb-3">
-			<strong>Id:</strong>
-			<input asp-for="Id">
-		</div>
-		<div class="mb-3">
 			<strong>Nome:</strong>
 			<input asp-for="Name" >
 			<span asp-validation-for="Name" class="text-danger"></span>

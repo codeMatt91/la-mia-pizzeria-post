@@ -17,7 +17,7 @@
 
 	<link rel="stylesheet" href="~/css/index.css" asp-append-version="true" />
 </head>
-<body>
+<body class="homepage">
 	<header>
 		<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
 			<div class="container-fluid">
@@ -42,8 +42,8 @@
 			<div class="text-center">
 				<h1>Benvenuti nella pizzeria di</h1>
 				<h3>Matteo Imbimbo</h3>
-				<div>
-					<a href="@Url.Action("Index", "Pizza")">Mostra la lista delle pizze</a>
+				<div class="list-pizza">
+					<h1><a href="@Url.Action("Index", "Pizza")">Mostra la lista delle pizze</a></h1>
 				</div>
 				
 			</div>

@@ -1,9 +1,12 @@
-﻿body {
-    
+﻿.homepage {
+    background-image: url("https://primochef.it/wp-content/uploads/2019/08/SH_pizza_fatta_in_casa-1200x800.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    backdrop-filter: opacity(1);
 }
 
 td {
-    vertical-align:middle;
+    vertical-align: middle;
 }
 
 img {
@@ -12,6 +15,16 @@ img {
 }
 
 .table {
-    margin-top:50px
+    margin-top: 50px
 }
 
+.list-pizza {
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+    .list-pizza h1 a{
+        text-decoration: none;
+    }

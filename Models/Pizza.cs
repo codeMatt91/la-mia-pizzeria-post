@@ -1,9 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace la_mia_pizzeria_static.Models
 {
+    [Table("Pizza")]
     public class Pizza
     {
+        [Key]
         public int Id { get; set; }
         [Required(ErrorMessage="Il nome è obbligatorio")]
         public string Name { get; set; }
@@ -13,9 +16,9 @@ namespace la_mia_pizzeria_static.Models
         public double Price { get; set; }
         public string? Photo { get; set; }
 
-        public Pizza(int id,string Nome, string Descizione, double Prezzo, string Foto)
+        public Pizza(string Nome, string Descizione, double Prezzo, string Foto)
         {
-            this.Id = id;
+            
             this.Name = Nome;
             this.Description = Descizione;
             this.Price = Prezzo;
